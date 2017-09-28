@@ -58,19 +58,21 @@ The framework of our newly devised blockchain structure is shown in the figure b
 	<img src ="pic/Figure1.jpg" />
 	<br/>
 	Figure 1: The blockchain structure in our design
+	<br/>
 </p>
 
-                 
+          
+
 In the following table, comparisons are made between Hcash and few other existing distributed ledgers, including throughputs of Hcash with different intervals of block generations. The current release corresponds to the line marked with the bold font.
 
-             |Keyblock Average Interval|Block Size|Microblock Average Interval|Transaction Size|Throughput      |
-|:-----------|:-----------------------:|:--------:|:-------------------------:|:--------------:|:--------------:|
-BTC          | 10min                   | 1MB      |                           | 250B           | 6.99TPS        |
-BTC(extended)| 10min                   | 2MB      |                           | 250B           | 13.98TPS       |
-BCC          | 10min                   | 8MB      |                           | 250B           | 55.92TPS       |
-Decred       | 5min                    |1.35MB    |                           | 250B           | 17.48TPS       |
-__Hcash__    | __5min__                | __2MB__  |    __18.75 sec__          | __250B__       | __447.39TPS__  |
-Hcash        | 5min                    | 8MB      |      18.75 sec            | 250B           | 1789.57TPS     |
+|             |Keyblock Average Interval|Block Size|Microblock Average Interval|Transaction Size|Throughput      |
+|:----------- |:-----------------------:|:--------:|:-------------------------:|:--------------:|:--------------:|
+|BTC          | 10min                   | 1MB      |                           | 250B           | 6.99TPS        |
+|BTC(extended)| 10min                   | 2MB      |                           | 250B           | 13.98TPS       |
+|BCC          | 10min                   | 8MB      |                           | 250B           | 55.92TPS       |
+|Decred       | 5min                    |1.35MB    |                           | 250B           | 17.48TPS       |
+|__Hcash__    | __5min__                | __2MB__  |    __18.75 sec__          | __250B__       | __447.39TPS__  |
+|Hcash        | 5min                    | 8MB      |      18.75 sec            | 250B           | 1789.57TPS     |
 
 The following table offers an approximated chance of adversary's successfully undermining the system (in case of different PoW power and PoS capabilities).
 
