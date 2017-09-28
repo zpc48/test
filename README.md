@@ -84,7 +84,7 @@ The following table offers an approximated chance of adversary's successfully un
 <p align="center">
 	<img src ="pic/Table2.png" />
 	<br/>
-	Table 2:  Probability of adversary's succeeding in attack with $\alpha$ fraction of total hash power and $\beta$ fraction of total stake
+	Table 2:  Probability of adversary's succeeding in attack with $$\alpha$$ fraction of total hash power and $$\beta$$ fraction of total stake
 	<br/>
 </p>
 
