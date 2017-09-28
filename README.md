@@ -54,11 +54,11 @@ Based on such a hybrid scheme, we implement a DAO that offers PoW and PoS miners
 Meanwhile, our scheme supports ''the segregated witness'', which facilitates future post-quantum signature schemes and the lightning network.
 The framework of our newly devised blockchain structure is shown in the figure below. 
 
-<div style="text-align:center">
+<p align="center">
 	<img src ="pic/Figure1.jpg" />
 	<br/>
 	Figure 1: The blockchain structure in our design
-</div>
+</p>
 
                  
 In the following table, comparisons are made between Hcash and few other existing distributed ledgers, including throughputs of Hcash with different intervals of block generations. The current release corresponds to the line marked with the bold font.
