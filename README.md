@@ -55,7 +55,7 @@ Meanwhile, our scheme supports ''the segregated witness'', which facilitates fut
 The framework of our newly devised blockchain structure is shown in the figure below. 
 
 <div style="text-align:center">
-	< img src ="pic/Figure1.jpg" />
+	<img src ="pic/Figure1.jpg" />
 	Figure 1: The blockchain structure in our design
 </div>
 
