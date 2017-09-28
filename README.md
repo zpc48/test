@@ -56,6 +56,7 @@ The framework of our newly devised blockchain structure is shown in the figure b
 
 <div style="text-align:center">
 	<img src ="pic/Figure1.jpg" />
+	<br/>
 	Figure 1: The blockchain structure in our design
 </div>
 
