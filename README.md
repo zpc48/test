@@ -1,7 +1,9 @@
-# Hcashd
+# Hcash
 
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
 [![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/HcashOrg/hcashd)
+
+## Introduction
 
 Blockchain technique has been thoroughly supported by researchers in both fields of distributed system and cryptography, regarding its delicate consensus model, scalability, efficiency, security, robustness, as well as privacy properties.
 After the testimony of the market over eight years, blockchain has been considered as a dependable technique of public awareness. 
@@ -39,6 +41,8 @@ Within them:
 4. provides efficiency, targeting at transactions with small value and high frequency.
 5. extends the throughput significantly, while not well supported by a convincing theoretical proof or a long-term practice. Also, certain security risks exist in 5).
 
+## Technology Summary
+
 To date, pure PoW (without a hybrid of other consensus primitives like PoS) and a hybrid of PoW and PoS (like DASH and Decred) are still mainstreams of existing cryptocurrencies. However, the efficiency and throughput are limited in these mechanisms. 
 Hcash aims at a secure, efficient, robust and hence dependable public chain cryptocurrency. Moreover, new characters will be released step by step by us including post-quantum techniques, smart contracts, a strong protection of wallets, and a linkability among blockchain based and DAG based distributed ledgers, etc.
 To achieve this, two major characteristics are provided ahead in this release of Hcash:
@@ -60,8 +64,7 @@ The framework of our newly devised blockchain structure is shown in the figure b
 	Figure 1: The blockchain structure in our scheme
 	<br/>
 </p>
-
-          
+     
 
 In the following table, comparisons are made between Hcash and few other existing distributed ledgers, including throughputs of Hcash with different intervals of block generations. The current release corresponds to the line marked with the bold font.
 
@@ -79,16 +82,26 @@ In the following table, comparisons are made between Hcash and few other existin
 	<br/>
 </p>
 
-The following table offers an approximated chance of adversary's successfully undermining the system (in case of different PoW power and PoS capabilities).
+The following table offers an approximated chance of adversary's successfully undermining the system (in case of different PoW power and PoS capabilities, α: proportion of adversary's hash power, β: proportion of adversary's PoS capabilities).
 
 <p align="center">
 	<img src ="pic/Table2.png" />
 	<br/>
-	Table 2:  Probability of adversary's succeeding in attack with α fraction of total hash power and β fraction of total stake
+	Table 2:  Probability of adversary's attack success with α fraction of total hash power and β fraction of total stake
 	<br/>
 </p>
 
+## Starting Hcashd
+Hcashd is a Hypercash full node implementation written in Go (golang).
 
+This acts as a chain daemon for the [Hypercash](https://h.cash) cryptocurrency. Hcashd maintains the entire past transactional ledger of Hypercash and allows relaying of transactions to other Hypercash nodes across the world.
+The installation of hcashd requires Go 1.7 or newer.
+* Glide 
+	Glide is used to manage project dependencies and provide reproducible builds. To install:
+	```
+	> go get -u github.com/Masterminds/glide
+
+	```
 
 ## Issue Tracker
 
