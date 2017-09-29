@@ -53,7 +53,6 @@ In Table I, comparisons are made between Hcash and a few well-known decentralize
 |__Hcash__    | __5min__                | __2MB__  |    __18.75 sec__          | __250B__       | __447.39TPS__  |
 |Hcash        | 5min                    | 8MB      |      18.75 sec            | 250B           | 1789.57TPS     |
 <p align="center">
-	<br/>
 	Table I: Comparisons between Hcash and a few well-known decentralized cryptocurrencies 
 	<br/>
 	<br/>
