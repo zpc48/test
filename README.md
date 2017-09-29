@@ -99,14 +99,23 @@ The installation of hcashd requires Go 1.7 or newer.
 * Glide 
 	Glide is used to manage project dependencies and provide reproducible builds. To install:
 	```
-	> go get -u github.com/Masterminds/glide
-
+	go get -u github.com/Masterminds/glide
 	```
-
-## Issue Tracker
-
-The [integrated github issue tracker](https://github.com/HcashOrg/hcashd/issues)
-is used for this project.
+* Getting  the source code
+	For a first time installation, the project and dependency sources can be obtained manually with git and glide (create directories as needed):
+	```
+	git clone https://github.com/HcashOrg/hcashd $GOPATH/src/github.com/HcashOrg/hcashd
+	cd $GOPATH/src/github.com/HcashOrg/hcashd
+	glide install
+	go install $(glide nv)
+	```
+    To update an existing source tree, pull the latest changes and install the matching dependencies:
+    ```
+	cd $GOPATH/src/github.com/HcashOrg/hcashd
+	git pull
+	glide install
+	go install $(glide nv)
+    ```
 
 ## Documentation
 
