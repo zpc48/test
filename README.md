@@ -101,7 +101,7 @@ The installation of hcashd requires Go 1.7 or newer.
 	```
 	go get -u github.com/Masterminds/glide
 	```
-* Getting  the source code
+* Build and Installation
 	For a first time installation, the project and dependency sources can be obtained manually with git and glide (create directories as needed):
 	```
 	git clone https://github.com/HcashOrg/hcashd $GOPATH/src/github.com/HcashOrg/hcashd
@@ -117,9 +117,6 @@ The installation of hcashd requires Go 1.7 or newer.
 	go install $(glide nv)
     ```
 
-## Documentation
-
-The documentation is a work-in-progress.  It is located in the [docs](https://github.com/HcashOrg/hcashd/tree/master/docs) folder.
 
 ## License
 
