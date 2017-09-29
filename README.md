@@ -1,72 +1,46 @@
-# Hcash
+# Overview of Hybrid Consensus Scheme in Hcash
 
 [![ISC License](http://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
 [![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg)](http://godoc.org/github.com/HcashOrg/hcashd)
 
-## Introduction
 
-Blockchain technique has been thoroughly supported by researchers in both fields of distributed system and cryptography, regarding its delicate consensus model, scalability, efficiency, security, robustness, as well as privacy properties.
-After the testimony of the market over eight years, blockchain has been considered as a dependable technique of public awareness. 
+When designing the consensus scheme for Hcash, we need to determine which technology for permissionless distributed ledger should be adopted, blockchain-based or DAG(Directed Acyclic Graph)-based? On the one hand, blockchain technique has been well studied in the aspects of consensus model, scalability, efficiency, security, robustness, privacy preserving, etc. Also, it has been widely applied and thoroughly testified in various decentralized cryptocurrencies or systems such as Bitcoin, Ethereum, and so on. Hence, blockchain is considered as a reliable technique for permissionless distributed ledger though there is still lots of room for the improvement of this promising technology. On the other hand, DAG technique has been leveraged recently in a few cryptocurrencies. These DAG-based cryptocurrencies are merited for their potential high throughput, especially in the case of massive transactions. However, DAG-based distributed systems lack sufficiently rigid and convincing investigation and evaluation, as well as sophisticated trial in practice. Furthermore, we find that there are some security issues in the existing DAG-based cryptocurrencies, for instance, IOTA's security heavily relies on the transaction frequency; Security flaw exists in the consensus model of Byteball (specifically, in the strategy algorithm for moving forward stable point of the distributed system); Byteball's security depends on a few “witness” nodes, which leads to potential centralization. Consequently, we adopt blockchain-based instead of DAG-based technology in Hcash.
 
-Apart from the blockchain, DAG technique has also been leveraged in few existing cryptocurrencies, merited for its overwhelming throughput, rapid transaction confirmation (especially in case of massive participation), by replacing the blockchain with a directed acyclic graph of transactions.
-However, DAG-based public-chain systems have been well supported by neither a rigid and convincing theoretical analysis nor a sophisticated trial of the market. Moreover, problematic issues exist in DAG-based cryptocurrencies, like IOTA's security properties' high dependence on the transaction frequency, and Byteball's dependence on few ''witness'' nodes which leads to a potential centralization.
-To avoid risks of DAG-based techniques, we adopt blockchain as the basis of our Hcash's underlying consensus scheme.
+After bitcoin was presented in 2008, various cryptocurrencies have been proposed and developed. Also, enhancements to the existing decentralized systems have been devised and put into practice. Among all, the most attractive innovations include Ethereum (supporting smart contracts), CryptoNotes, ZeroCash (enhancing privacy via ring signatures or non-interactive zero-knowledge proofs), DASH, Decred (implementing hybrid consensus and basic DAO), IOTA, Byteball (improving the throughput with DAG-based structure), Bitcoin-NG (introducing keyblock and microblock to enhance throughput), and sidechain techniques (supporting interchangeability between some given cryptocurrencies).
 
 
-In 2008, for the first time in history, a fully decentralized monetary network based on a novel technique known as the blockchain was proposed by Satoshi Nakamoto in his documentation description of bitcoin.
-After bitcoin's proposal, various decentralized cryptocurrencies have been theoretically proposed or developed. Also, massive enhancements to the blockchain have been devised and put into practice of existing cryptocurrencies.
-Some of the most attractive innovations include Ethereum (by supporting smart contracts with the extension of the underlying script),
-CryptoNotes, ZeroCash (by enhancing privacy via ring signatures or non-interactive zero-knowledge proofs), DASH, Decred (by a hybrid consensus and the implementation of a basic DAO), IOTA, Byteball (by improving the throughput with a DAG structure), Bitcoin-NG (by an novel primitive of a blockchain of two levels), and ''sidechain'' techniques (providing a linkability among different cryptocurrencies).
+Proof-of-work (PoW), the consensus scheme implemented in bitcoin and many other well-known decentralized cryptocurrencies, has lots of merits including trustworthy sustainability, strong robustness against malicious participants, delicate incentive-compatibility, and openness to any participant (i.e., participants could join and leave  dynamically). 
 
 
-Cryptocurrencies implementing the proof-of-work (PoW), which is the foundation of bitcoin's consensus scheme, have been merited for many advantages, including a trustworthy sustainability (after sustaining sufficient practical trials), strong robustness against certain malicious participants, delicate incentive-compatibility, and a support of participants' dynamical joining and leaving.
-On the other hand, PoW has also been indifferent due to its waste of resources and a potential centralization of hash power.
-Therefore, alternative consensus primitives have been introduced to replace (fully or partially) PoW, like proof-of-stake (PoS).
-However, pure PoS (a total substitution from PoW to PoS) is also controversial for its sustainability, due to its lack of practical trials and the risk of time-stamp forgery.
+Meanwhile, PoW has been criticized due to its waste of resources and a potential centralization of hash power. Thus alternative consensus models have been introduced to replace (fully or partially) PoW, like proof-of-stake (PoS). However, PoS is controversial for its sustainability and security, due to lack of practical trials and the risk of data forgery.
 
 
-Another disadvantage of bitcoin is its limited throughput of transactions. Specifically, merely 7 transactions can be tackled by the existing network per second. That is, approximately only 600 thousand transactions can be tackled every day. This is a notorious drawback of bitcoin's future participation. Current improvement to this include:
+Another drawback of PoW is its relatively poor efficiency. Bitcoin, equipped with PoW, can only support very limited transaction throughput (say, at most 7 transactions per second (TPS)), which greatly constrains the scalability of Bitcoin system. So far five approaches have been proposed to solve or relieve this issue as shown below:
 
-1.  shortening the block interval;
-2.  extending the block size;
-3.  a chain structure of multiple levels;
-4.  introducing ''the lightning network'';
-5.  a ledger of a DAG framework.
+1. Shorten the block interval;
+2. Extend the block size;
+3. Adopt two-layer chain structure (i.e., keyblock/microblock);
+4. Introduce the lightning network;
+5. Apply DAG-based framework/structure.
 
-Within them:
+Among them, 1) compromises certain stability/security of decentralized system, which has been shown by the practice of ETH. More specifically, the short block interval (20-30s) adopted in ETH did cause instability of the system, and to face this issue, the “GHOST” protocol (somewhat controversial) was implemented in ETH. For 2), it seems simple but causes communication burden to the network. While for 3), it was presented in Bitcoin-NG and its main idea is as follows: the block created by a miner after solving hash puzzle is called a keyblock. After the creation of a keyblock (say, block A), the corresponding miner can release several microblocks before a keyblock succeeding block A is generated. The security and robustness of the decentralized system rely on the PoW mechanism for keyblock, and the system throughput can be improved greatly due to frequent release of microblocks. However, Bitcoin-NG is problematic for its vulnerability to selfish mining and a potential attack by keyblock proposer's spawning massive microblocks which undermines the convergence property of the system and causes network overburdening because of massive forks. Regarding 4), it provides an efficient off-chain transaction mechanism, targeting on transactions with small value and high frequency. As for 5), it draws much interest for its potential high throughput, however, this novel technique still needs to be sufficiently investigated and evaluated theoretically and practically.
 
-1. compromises a certain stability, which has been proven by ETH's short block interval (20s to 30s). To face this issue, a controversial protocol called ''GHOST'' has to be introduced to ETH.
-2. causes a great communication burden to the network.
-3. is utilized in Bitcoin-NG, its main principle is: the block proposed by miners after solving a hash puzzle is called a ''keyblock''. After the proposal of a keyblock, the proposer can release few ''microblock''s, before other miner's proposal of another keyblock. However, Bitcoin-NG is also problematic for its vulnerability facing a selfish mining and a potential attack by keyblock proposer's spawning massive microblocks, in which case the convergence property is undermined by chain forks, and the network is overloaded. 
-4. provides efficiency, targeting at transactions with small value and high frequency.
-5. extends the throughput significantly, while not well supported by a convincing theoretical proof or a long-term practice. Also, certain security risks exist in 5).
 
-## Technology Summary
+To date, existing decentralized cryptocurrencies adopt either PoW consensus scheme or hybrid consensus model of PoW and PoS. However, these systems still encounter the issue of very limited efficiency/throughput. 
 
-To date, pure PoW (without a hybrid of other consensus primitives like PoS) and a hybrid of PoW and PoS (like DASH and Decred) are still mainstreams of existing cryptocurrencies. However, the efficiency and throughput are limited in these mechanisms. 
-Hcash aims at a secure, efficient, robust and hence dependable public chain cryptocurrency. Moreover, new characters will be released step by step by us including post-quantum techniques, smart contracts, a strong protection of wallets, and a linkability among blockchain based and DAG based distributed ledgers, etc.
-To achieve this, two major characteristics are provided ahead in this release of Hcash:
+Hcash project aims to build secure, efficient, robust and reliable decentralized system. Highlighted features such as newly-proposed hybrid consensus scheme, post-quantum digital signature, linkability among various blockchain-based and DAG-based decentralized cryptocurrencies, smart contract mechanism and post-quantum privacy-preserving scheme will be proposed and implemented in Hcash eventually. First of all, we present a novel hybrid consensus scheme with strong robustness, high throughput as well as sufficient flexibility in Hcash. On the one hand, with a newly-proposed two-layer framework of block chain, significant improvement of the efficiency is offered without compromising the security. On the other hand, with a hybrid consensus model, both PoW and PoS miners are incentivized to take part in the consensus process, thereby enhancing the security and flexibility of the consensus scheme, and providing a mechanism that supports basic DAO for future protocol updating and project investments.
 
-1. With an alternative double-chain framework of the blockchain (differs from that of Bitcoin-NG), significant improvement of the efficiency is offered without compromising the security.
-2. With a hybrid consensus, miners and stakeholders are incentivized to take part in the consensus, thereby enhancing the security and flexibility, and providing a mechanism that supports DAO for future protocol updating and project investments.
-
-Adopting merits of both Decred and Bitcoin-NG, we devise a brand new consensus mechanism consisting of their key methodologies and our newly proposed innovations.
-Firstly, with the methodology from Bitcoin-NG's keyblock/microblock structure, we offer a novel chain structure consisting two levels of blocks. In this way, the aforementioned hazard concerning the convergence property is faced. Specifically, the difficulty of the PoW hash puzzle is replaced by two difficulties. During miner's solving a hash puzzle, a keyblock can be proposed once a harder difficulty is met, and a microblock in case of a lower difficulty. In this way, the malicious power has to solve enough puzzles to spawn microblocks, hence the throughput and efficiency is enhanced without a compromise of security or robustness.
-Moreover, to face the selfish mining, strengthen the robustness (against ''the 51\% attack''), and offer the flexibility (supporting both PoW and PoS mining), we adopt Decred's mechanism of voting tickets (a practical and flexible PoS scheme).
-With the combination of two innovations above, a novel hybrid consensus scheme is formed, where keyblocks should be confirmed by certain voting tickets and both PoW and PoS miners participate in the consensus and play an important role.
-Based on such a hybrid scheme, we implement a DAO that offers PoW and PoS miners' future decisions concerning protocol updating and project investments.
-Meanwhile, our scheme supports ''the segregated witness'', which facilitates future post-quantum signature schemes and the lightning network.
-The framework of our newly devised blockchain structure is shown in the figure below. 
+Our brand-new consensus mechanism inherits the merits of Decred and Bitcoin-NG, based on which we propose key innovations to make our scheme more secure, efficient and flexible. Firstly, with the methodology from Bitcoin-NG's keyblock/microblock structure, we offer a two-layer chain structure. To tackle the aforementioned security issue existed in Bitcoin-NG, we present two-level mining mechanism and incorporate this mechanism into the two-layer chain structure. More specifically, two level of difficulties of PoW hash puzzle are set and these difficulties can be adjusted dynamically. When solving a hash puzzle, PoW miner can create a keyblock once the hard-level difficulty is met, and publish a microblock in the case that the low-level difficulty is satisfied. In this way, the system throughput could be enhanced significantly, and the security of the system is not compromised since malicious miners can not spawn massive microblocks freely. Furthermore, to tackle the selfish mining issue, strengthen the robustness against “the 51% attack” of PoW miners, and offer the sufficient flexibility (supporting both PoW and PoS mining), we borrow the idea of Decred's ticket-voting mechanism (a practical and flexible PoS scheme) and combine it with our newly-proposed two-layer chain structure delicately to devise a secure, efficient and flexible hybrid consensus scheme. In Hcash, keyblocks should be confirmed by certain voting tickets, and both PoW and PoS miners play important roles on the consensus of the system. With this novel hybrid scheme, we further implement basic DAO to provide PoW and PoS miners an effective mechanism for future protocol updating and project investments. Meanwhile, our scheme supports the segregated witness scheme, which facilitates the implementation of the lightning network and post-quantum signature schemes in the future. The schematic framework of our consensus scheme is shown in Figure I.
 
 <p align="center">
 	<img src ="pic/Figure1.jpg" />
 	<br/>
-	Figure 1: The blockchain structure in our scheme
+	Figure I: The schematic framework of our consensus scheme
 	<br/>
 </p>
      
 
-In the following table, comparisons are made between Hcash and few other existing distributed ledgers, including throughputs of Hcash with different intervals of block generations. The current release corresponds to the line marked with the bold font.
+In Table I, comparisons are made between Hcash and a few well-known decentralized cryptocurrencies. Table I also includes throughputs of Hcash with different parameters for keyblock/microblock generations. The current release of Hcash corresponds to the row marked with bold font.
 
 |             |Keyblock Average Interval|Block Size|Microblock Average Interval|Transaction Size|Throughput      |
 |:----------- |:-----------------------:|:--------:|:-------------------------:|:--------------:|:--------------:|
@@ -78,18 +52,20 @@ In the following table, comparisons are made between Hcash and few other existin
 |Hcash        | 5min                    | 8MB      |      18.75 sec            | 250B           | 1789.57TPS     |
 <p align="center">
 	<br/>
-	Table 1: Comparisons between Hcash and other distributerd ledgers 
+	Table I: Comparisons between Hcash and a few well-known decentralized cryptocurrencies 
 	<br/>
 </p>
 
-The following table offers an approximated chance of adversary's successfully undermining the system (in case of different PoW power and PoS capabilities, α: proportion of adversary's hash power, β: proportion of adversary's PoS capabilities).
+Table II offers the relation between adversary’s PoW power and PoS capabilities (measured in proportion over all PoW power or PoS capabilities) and the success possibility of adversary undermining the system (α denotes the proportion of adversary's PoW power, β denotes the proportion of adversary's PoS capabilities).
 
 <p align="center">
 	<img src ="pic/Table2.png" />
 	<br/>
-	Table 2:  Probability of adversary's attack success with α fraction of total hash power and β fraction of total stake
+	Table 2:  Probability of adversary's succeeding in an attack with α fraction of total hash power and β fraction of total stake
 	<br/>
 </p>
+
+The detailed description and analysis (including security and efficiency analysis) of the novel hybrid consensus scheme implemented in Hcash will be given in our research paper which will appear in the near future.
 
 ## Starting Hcashd
 Hcashd is a Hypercash full node implementation written in Go (golang).
@@ -113,6 +89,7 @@ The installation of hcashd requires Go 1.7 or newer.
     ```
 	cd $GOPATH/src/github.com/HcashOrg/hcashd
 	git pull
+	glide update
 	glide install
 	go install $(glide nv)
     ```
