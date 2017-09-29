@@ -40,6 +40,7 @@ Our brand-new consensus mechanism inherits the merits of Decred and Bitcoin-NG, 
 </p>
      
 
+
 In Table I, comparisons are made between Hcash and a few well-known decentralized cryptocurrencies. Table I also includes throughputs of Hcash with different parameters for keyblock/microblock generations. The current release of Hcash corresponds to the row marked with bold font.
 
 |             |Keyblock Average Interval|Block Size|Microblock Average Interval|Transaction Size|Throughput      |
@@ -56,6 +57,8 @@ In Table I, comparisons are made between Hcash and a few well-known decentralize
 	<br/>
 </p>
 
+
+
 Table II offers the relation between adversary’s PoW power and PoS capabilities (measured in proportion over all PoW power or PoS capabilities) and the success possibility of adversary undermining the system (α denotes the proportion of adversary's PoW power, β denotes the proportion of adversary's PoS capabilities).
 
 <p align="center">
@@ -64,6 +67,8 @@ Table II offers the relation between adversary’s PoW power and PoS capabilitie
 	Table 2:  Probability of adversary's succeeding in an attack with α fraction of total hash power and β fraction of total stake
 	<br/>
 </p>
+
+
 
 The detailed description and analysis (including security and efficiency analysis) of the novel hybrid consensus scheme implemented in Hcash will be given in our research paper which will appear in the near future.
 
