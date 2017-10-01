@@ -180,6 +180,8 @@ The detailed information of configuration will be released soon.
 
 * Lauching
 
+Before launching hcashwallet, it's necessary to start hcashd first. 
+
 ```
 hcashwallet
 ```
