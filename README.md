@@ -162,36 +162,7 @@ The folloing instruction detail how to create a new wallet when first starting t
 hcashwallet --create
 ```
 
-During this process, you’ll set a private passphrase, optionally set a public passphrase, and record your seed. To accomplish this, follow the steps below:
-
-1. Set passphrases for wallet
-If the dcrwallet --create command successfully executed, you should be greeted by the following text:
-```
-Enter the private passphrase for your new wallet:
-```
-This first passphrase, the private passphrase, is what you will use to unlock your wallet when creating transactions or voting with Proof-of-Stake. Please use a unique and strong password. This password also protects the private keys within your wallet file, securing it from theft.
-
-2. After you’ve verified your private passphrase, you should see the following prompt:
-```
-Do you want to add an additional layer of encryption for public data? (n/no/y/yes) [no]:
-```
-The public passphrase is optional. It is used to encrypt all of the public data (transactions and addresses) within your wallet file so if it is stolen, an adversary can’t link you to your transactions.
-
-3. Record Your Seed
-Before creating a new seed for your wallet, please review the Critical Information section.
-
-After you’ve set your private passphrase and optional public passphrase, you’ll see the following prompt:
-```
-Do you have an existing wallet seed you want to use? (n/no/y/yes) [no]:
-This guide assumes you do not have an existing seed, so continue by hitting Enter which will answer the prompt with the default [no].
-```
- PS: If you wish to restore your wallet by using your seed, you would simply enter [yes] here and follow the instructions on screen.
-
-4. Once you have written down the seed phrase and hex, type OK and press Enter. 
-```
-Creating the wallet...
-The wallet has been created successfully.
-```
+During this process, you’ll set a private passphrase, optionally set a public passphrase, and record your seed. 
 
 * Configuring
 After creating the wallet for the first time, it's necessary to configure your wallet before launching. It's recommanded to copy the sample hcashd and hcashwallet configurations and update with your RPC username and password.
