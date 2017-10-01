@@ -171,7 +171,7 @@ After creating the wallet for the first time, it's necessary to configure your w
 $ cp $GOPATH/src/github.com/HcashOrg/hcashd/sample-hcashd.conf ~/.hcashd/hcashd.conf
 $ cp $GOPATH/src/github.com/HcashOrg/hcashwallet/sample-hcashwallet.conf ~/.hcashwallet/hcashwallet.conf
 ```
-After copy the sample configuration file to working directory, you need to update your rpc_username and password. In addtion, If you want to participate the PoS consensus process, you need to set following parameters in your hcashwallet.conf.
+After copy the sample configuration file to working directory, you need to update your RPC username and password. In addtion, if you want to participate the PoS consensus process, you need to purchase ticket and set the following parameter in your hcashwallet.conf.
 ```
 enablevoting=1
 ```  
@@ -192,7 +192,7 @@ hcashctl --wallet getbalance      //Get the spendable balance in the given accou
 hcashctl --wallet getstakeinfo    //Get info about the current status of the PoS pool. 
 hcashctl --wallet sendtoaddress "[address]" [amount]  //Send hcash from your account to the wanted address
 hcashctl --wallet purchaseticket "[fromaccount]" spendlimit minconf "ticketaddress" "[numtickets]")   
-//purchase tickets to participate in PoS process. Spendlimit denotes the limit on the amount to spend on ticket, minconf denotes the minimal required confirmation of the transaction(e.g. 1)
+//Purchase tickets to participate in PoS process. Spendlimit denotes the limit on the amount to spend on ticket, minconf denotes the minimal required confirmation of the transaction(e.g. 1)
 ```
 
 ## License
