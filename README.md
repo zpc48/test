@@ -118,11 +118,11 @@ hcashd is licensed under the [copyfree](http://copyfree.org) ISC License.
 
 ## Overview
 
-Hcashwallet is a daemon handling hypercash wallet functionality for a single user.  
+Hcashwallet is a daemon handling hcash wallet functionality for a single user.  
 
 It acts as both an RPC client to hcashd and an RPC server for wallet clients and legacy RPC applications. It manages all of your accounts, addresses, and transactions and allows users to participate in Proof-of-Stake voting.
 
-Hcashwallet is not an SPV client and requires connecting to a local or remote hcashd instance for asynchronous blockchain queries and notifications over websockets.  Full hcashd installation instructions can be found [here](https://github.com/HcashOrg/hcashd).
+Hcashwallet is not an SPV client and requires connecting to a local or remote hcashd instance for asynchronous blockchain queries and notifications over websockets. Full hcashd installation instructions can be found [here](https://github.com/HcashOrg/hcashd).
 
 ## Build and Installation
 
@@ -171,7 +171,7 @@ After creating the wallet for the first time, it's necessary to configure your w
 $ cp $GOPATH/src/github.com/HcashOrg/hcashd/sample-hcashd.conf ~/.hcashd/hcashd.conf
 $ cp $GOPATH/src/github.com/HcashOrg/hcashwallet/sample-hcashwallet.conf ~/.hcashwallet/hcashwallet.conf
 ```
-After copy the sample configuration file to working directory, you need to update your rpc_username and password. In addtion, If you want to participate the PoS consensus process, you need to set following parameters in your hcashwallet.conf
+After copy the sample configuration file to working directory, you need to update your rpc_username and password. In addtion, If you want to participate the PoS consensus process, you need to set following parameters in your hcashwallet.conf.
 ```
 enablevoting=1
 ```  
@@ -183,6 +183,7 @@ The detailed information of configuration will be released soon.
 hcashwallet
 ```
 If already set enable voting before , you need to type in your private phrase later.
+
 You can run hcashctl.exe and type in the following common instructions to gain detailed inforamtion of your current state. PS: Hcashctl will be installed with the installation of hcashd.
 ```
 hcashctl getinfo  		           //Displays the basic info about the network including current block number and network difficulty.
@@ -194,3 +195,6 @@ hcashctl --wallet purchaseticket "[fromaccount]" spendlimit minconf "ticketaddre
 //purchase tickets to participate in PoS process. Spendlimit denotes the limit on the amount to spend on ticket, minconf denotes the minimal required confirmation of the transaction(e.g. 1)
 ```
 
+## License
+
+hcashwallet is licensed under the [copyfree](http://copyfree.org) ISC License.
