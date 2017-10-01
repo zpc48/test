@@ -184,7 +184,9 @@ hcashwallet
 ```
 If already set enable voting before , you need to type in your private phrase later.
 
-You can run hcashctl.exe and type in the following common instructions to gain detailed inforamtion of your current state. PS: Hcashctl will be installed with the installation of hcashd.
+You can run hcashctl.exe and type in the following common instructions to gain detailed inforamtion of your current state. 
+
+PS: Hcashctl will be installed with the installation of hcashd.
 ```
 hcashctl getinfo  		           //Displays the basic info about the network including current block number and network difficulty.
 hcashctl --wallet getnewaddress   //Get a new address in the given account.
