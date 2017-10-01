@@ -165,6 +165,7 @@ hcashwallet --create
 During this process, you’ll set a private passphrase, optionally set a public passphrase, and record your seed. 
 
 * Configuring
+
 After creating the wallet for the first time, it's necessary to configure your wallet before launching. It's recommanded to copy the sample hcashd and hcashwallet configurations and update with your RPC username and password.
 
 ```
